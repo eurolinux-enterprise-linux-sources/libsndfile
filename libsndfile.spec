@@ -1,18 +1,18 @@
 Summary:	Library for reading and writing sound files
 Name:		libsndfile
 Version:	1.0.20
-Release:	3%{?dist}.1
+Release:	5%{?dist}
 License:	LGPLv2+ and GPLv2+ and BSD
 Group:		System Environment/Libraries
 URL:		http://www.mega-nerd.com/libsndfile/
 Source0:	http://www.mega-nerd.com/libsndfile/files/libsndfile-%{version}.tar.gz
 
 #from upstream, for libsndfile < 1.0.25, crash by overflow with some PAF files (CVE-2011-2696)
-Patch1:         libsndfile-1.0.17-r1610.patch
+Patch1:		libsndfile-1.0.17-r1610.patch
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot-%(%{__id_u} -n)
 
-BuildRequires:	alsa-lib-devel, pkgconfig, flac-devel, sqlite-devel, libogg-devel
+BuildRequires:	alsa-lib-devel, pkgconfig, flac-devel, sqlite-devel, libogg-devel, libvorbis-devel
 %if 0%{?rhel} == 0
 BuildRequires: jack-audio-connection-kit-devel
 %endif
@@ -127,8 +127,11 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Mon Jul 18 2011 Michal Hlavinka <mhlavink@redhat.com> - 1.0.20-3.1
-- fixes integer overflow by processing certain PAF audio files (#722841)
+* Mon Jul 18 2011 Michal Hlavinka <mhlavink@redhat.com> - 1.0.20-5
+- fixes integer overflow by processing certain PAF audio files (#722842)
+
+* Mon Jun 27 2011 Michal Hlavinka <mhlavink@redhat.com> - 1.0.20-4
+- enable libvorbis support (#664323)
 
 * Mon Feb  1 2010 Stepan Kasal <skasal@redhat.com> - 1.0.20-3
 - Fix the Source0: URL

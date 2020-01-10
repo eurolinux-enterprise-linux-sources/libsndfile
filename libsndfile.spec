@@ -1,7 +1,7 @@
 Summary:	Library for reading and writing sound files
 Name:		libsndfile
 Version:	1.0.25
-Release:	7%{?dist}
+Release:	9%{?dist}
 License:	LGPLv2+ and GPLv2+ and BSD
 Group:		System Environment/Libraries
 URL:		http://www.mega-nerd.com/libsndfile/
@@ -161,6 +161,12 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1.0.25-9
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.0.25-8
+- Mass rebuild 2013-12-27
+
 * Mon Jun 03 2013 Michal Hlavinka <mhlavink@redhat.com> - 1.0.25-7
 - fix support for aarch64, another part (#969831)
 

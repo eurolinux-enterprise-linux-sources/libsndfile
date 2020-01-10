@@ -1,7 +1,7 @@
 Summary:	Library for reading and writing sound files
 Name:		libsndfile
 Version:	1.0.25
-Release:	10%{?dist}
+Release:	7%{?dist}
 License:	LGPLv2+ and GPLv2+ and BSD
 Group:		System Environment/Libraries
 URL:		http://www.mega-nerd.com/libsndfile/
@@ -81,7 +81,7 @@ cp -pR $RPM_BUILD_ROOT%{_docdir}/libsndfile1-dev/html __docs
 rm -rf $RPM_BUILD_ROOT%{_docdir}/libsndfile1-dev
 
 # fix multilib issues
-%if %{__isa_bits} == 64
+%ifarch x86_64 s390x ia64 ppc64 sparc64 aarch64
 %define wordsize 64
 %else
 %define wordsize 32
@@ -161,15 +161,6 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Sat Aug  2 2014 Peter Robinson <pbrobinson@redhat.com> 1.0.25-10
-- Generic 32/64 bit platform detection - fix ppc64le build (#1126140)
-
-* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1.0.25-9
-- Mass rebuild 2014-01-24
-
-* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.0.25-8
-- Mass rebuild 2013-12-27
-
 * Mon Jun 03 2013 Michal Hlavinka <mhlavink@redhat.com> - 1.0.25-7
 - fix support for aarch64, another part (#969831)
 
